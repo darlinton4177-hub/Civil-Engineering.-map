@@ -1,0 +1,39 @@
+{
+  "formula_id": "CIV-SUR-HI-001",
+  "name": "Height of Instrument",
+  "discipline": "civil",
+  "course": "surveying",
+  "topic": "differential_levelling",
+  "module_version": "0.1.0",
+  "academic_level": "undergraduate",
+  "equation_latex": "HI = RL_{BM} + BS",
+  "variables": [
+    {
+      "symbol": "HI",
+      "name": "Height of instrument",
+      "unit": "m"
+    },
+    {
+      "symbol": "RL_BM",
+      "name": "Reduced level of benchmark",
+      "unit": "m"
+    },
+    {
+      "symbol": "BS",
+      "name": "Back sight",
+      "unit": "m"
+    }
+  ],
+  "applicability": "Height-of-instrument method for a valid levelling setup.",
+  "assumptions": [
+    "Readings are in metres.",
+    "The benchmark reduced level is known."
+  ],
+  "references": [
+    {
+      "title": "Add verified surveying textbook or official reference",
+      "edition_year": null
+    }
+  ],
+  "status": "draft"
+}

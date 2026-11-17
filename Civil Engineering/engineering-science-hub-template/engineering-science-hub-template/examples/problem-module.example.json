@@ -1,0 +1,61 @@
+{
+  "module_id": "CIV-STR-BEAM-SS-001",
+  "name": "Simply Supported Beam - Educational Analysis",
+  "discipline": "civil",
+  "course": "structural_analysis",
+  "topic": "beam_reactions_sfd_bmd",
+  "module_version": "0.1.0",
+  "academic_level": "undergraduate",
+  "problem_scope": "A simply supported beam with a narrowly defined loading case.",
+  "inputs": [
+    {
+      "key": "span",
+      "label": "Beam span",
+      "type": "number",
+      "unit": "m",
+      "required": true,
+      "min": 0
+    },
+    {
+      "key": "point_load",
+      "label": "Point load",
+      "type": "number",
+      "unit": "kN",
+      "required": true,
+      "min": 0
+    },
+    {
+      "key": "load_position",
+      "label": "Load position from left support",
+      "type": "number",
+      "unit": "m",
+      "required": true,
+      "min": 0
+    }
+  ],
+  "assumptions": [
+    "Idealised simply supported beam.",
+    "Static loading.",
+    "Load acts vertically downward.",
+    "Load position must lie within the span."
+  ],
+  "outputs": [
+    "support_reactions",
+    "shear_force_data",
+    "bending_moment_data",
+    "equilibrium_checks"
+  ],
+  "visualisations": [
+    "beam_diagram",
+    "shear_force_diagram",
+    "bending_moment_diagram"
+  ],
+  "exports": [
+    "pdf_report",
+    "png_graph",
+    "svg_graph",
+    "csv_data"
+  ],
+  "references": [],
+  "status": "draft"
+}
