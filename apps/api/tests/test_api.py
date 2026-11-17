@@ -9,7 +9,7 @@ def test_root_endpoint():
     response = client.get("/")
     assert response.status_code == 200
     data = response.json()
-    assert "Engineering & Science Hub" in data["service"]
+    assert "Engineer Realm" in data["service"]
     assert data["api_v1"] == "/api/v1"
 
 

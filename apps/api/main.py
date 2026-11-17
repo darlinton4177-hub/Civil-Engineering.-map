@@ -1,20 +1,20 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apps.api.config import settings
-from apps.api.routers import health, departments, courses, modules, runs
+from apps.api.routers import health, departments, courses, modules, runs, fea
 
 app = FastAPI(
     title=settings.API_TITLE,
     version=settings.API_VERSION,
     description=(
-        "Engineering & Science Hub API: Modular platform for university-level "
-        "engineering problem solving and scientific computation."
+        "Engineer Realm Multiphysics API: Unified environment for engineering computation, "
+        "finite element analysis (FEA), 3D structural simulation, and scientific intelligence."
     ),
     docs_url="/docs",
     openapi_url="/openapi.json",
 )
 
-# Enable CORS for frontend clients (Next.js web & future mobile)
+# Enable CORS for frontend clients
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.CORS_ORIGINS,
@@ -29,15 +29,23 @@ app.include_router(departments.router, prefix=settings.API_PREFIX)
 app.include_router(courses.router, prefix=settings.API_PREFIX)
 app.include_router(modules.router, prefix=settings.API_PREFIX)
 app.include_router(runs.router, prefix=settings.API_PREFIX)
+app.include_router(fea.router, prefix=settings.API_PREFIX)
 
 
 @app.get("/")
 def root():
     return {
-        "service": settings.API_TITLE,
+        "service": "Engineer Realm — Engineering & Science Hub API",
         "version": settings.API_VERSION,
         "docs": "/docs",
         "api_v1": settings.API_PREFIX,
+        "capabilities": [
+            "Linear Static FEA",
+            "Modal Dynamics",
+            "Eigenvalue Buckling",
+            "Mesh Convergence",
+            "Structural Design Detailing",
+        ],
     }
 
 
