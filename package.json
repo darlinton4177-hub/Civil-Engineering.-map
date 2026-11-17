@@ -1,0 +1,13 @@
+{
+  "name": "engineering-science-hub",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Modular platform for university-level engineering and scientific computation.",
+  "scripts": {
+    "web:dev": "npm --prefix apps/web run dev",
+    "web:build": "npm --prefix apps/web run build",
+    "api:dev": "apps\\api\\.venv\\Scripts\\uvicorn apps.api.main:app --reload --port 8000",
+    "api:test": "apps\\api\\.venv\\Scripts\\pytest -v apps/api/tests",
+    "test": "apps\\api\\.venv\\Scripts\\pytest -v apps/api/tests"
+  }
+}
