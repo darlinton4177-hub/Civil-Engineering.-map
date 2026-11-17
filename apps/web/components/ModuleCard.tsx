@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Activity, Compass, MapPin, TrendingUp, Shield, ArrowRight, BookOpen } from 'lucide-react';
 import { ProblemModule } from '../lib/api';
 
@@ -43,7 +44,7 @@ export function ModuleCard({ module, onSelect }: ModuleCardProps) {
   };
 
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+    <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs hover:shadow-md transition flex flex-col justify-between">
       <div>
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="p-2.5 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center">
@@ -68,13 +69,23 @@ export function ModuleCard({ module, onSelect }: ModuleCardProps) {
         <span className="text-[11px] text-slate-500 font-medium capitalize">
           Status: <strong className="text-slate-800">{module.status}</strong>
         </span>
-        <button
-          onClick={() => onSelect && onSelect(module)}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-900 text-white hover:bg-sky-600 transition"
-        >
-          <span>Open Solver</span>
-          <ArrowRight className="w-3.5 h-3.5" />
-        </button>
+        {module.slug === 'simply-supported-beam' ? (
+          <Link
+            href="/workbench/simply-supported-beam"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-sky-600 text-white hover:bg-sky-500 transition shadow-xs"
+          >
+            <span>Open Workbench</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        ) : (
+          <button
+            onClick={() => onSelect && onSelect(module)}
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-slate-900 text-white hover:bg-sky-600 transition"
+          >
+            <span>Preview Spec</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        )}
       </div>
     </div>
   );
